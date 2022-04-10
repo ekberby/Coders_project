@@ -1,4 +1,4 @@
-package com.example.web_demo0.Model.Enum;
+package com.example.web_demo0.model.enums;
 
 public enum Gender {
     MALE,

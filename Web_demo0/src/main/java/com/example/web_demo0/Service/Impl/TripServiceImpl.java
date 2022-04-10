@@ -1,9 +1,9 @@
-package com.example.web_demo0.Service.Impl;
+package com.example.web_demo0.service.impl;
 
-import com.example.web_demo0.Model.Entity.Trip;
-import com.example.web_demo0.Model.dto.TripDto;
-import com.example.web_demo0.Repository.TripRepository;
-import com.example.web_demo0.Service.TripService;
+import com.example.web_demo0.model.entity.Trip;
+import com.example.web_demo0.model.dto.TripDto;
+import com.example.web_demo0.repository.TripRepository;
+import com.example.web_demo0.service.TripService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class TripServiceImpl  implements TripService {
 
     @Override
     public List<TripDto> getAll() {
-        return tripRepository.findAll().stream().map(trip -> mapToTripDto(trip)).collect(Collectors.toList());
+        return tripRepository.findAll().stream().map(this::mapToTripDto).collect(Collectors.toList());
     }
 
     @Override
@@ -29,7 +29,7 @@ public class TripServiceImpl  implements TripService {
 
     @Override
     public TripDto getById(String name) {
-        return tripRepository.findById(name).map(trip -> mapToTripDto(trip)).get();
+        return tripRepository.findById(name).map(this::mapToTripDto).get();
     }
 
     @Override

@@ -1,6 +1,6 @@
-package com.example.web_demo0.Model;
+package com.example.web_demo0.model;
 
-import com.example.web_demo0.Model.Entity.User;
+import com.example.web_demo0.model.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

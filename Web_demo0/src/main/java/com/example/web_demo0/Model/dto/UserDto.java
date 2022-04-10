@@ -1,7 +1,7 @@
-package com.example.web_demo0.Model.dto;
+package com.example.web_demo0.model.dto;
 
 
-import com.example.web_demo0.Model.Enum.Gender;
+import com.example.web_demo0.model.enums.Gender;
 import lombok.*;
 
 @Data

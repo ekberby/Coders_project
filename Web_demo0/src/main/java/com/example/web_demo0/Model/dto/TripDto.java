@@ -1,13 +1,10 @@
-package com.example.web_demo0.Model.dto;
+package com.example.web_demo0.model.dto;
 
-import com.example.web_demo0.Model.Enum.TripType;
+import com.example.web_demo0.model.enums.TripType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 @Data
 @Builder

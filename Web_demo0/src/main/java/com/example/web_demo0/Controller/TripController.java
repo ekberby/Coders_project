@@ -1,8 +1,8 @@
-package com.example.web_demo0.Controller;
+package com.example.web_demo0.controller;
 
-import com.example.web_demo0.Model.Entity.Trip;
-import com.example.web_demo0.Model.dto.TripDto;
-import com.example.web_demo0.Service.Impl.TripServiceImpl;
+import com.example.web_demo0.model.entity.Trip;
+import com.example.web_demo0.model.dto.TripDto;
+import com.example.web_demo0.service.impl.TripServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("trips")
+@CrossOrigin
 public class TripController {
     private final TripServiceImpl tripService;
     @PostMapping

@@ -1,14 +1,14 @@
-package com.example.web_demo0.Service
+package com.example.web_demo0.service
 
-import com.example.web_demo0.Model.Entity.Trip
-import com.example.web_demo0.Model.dto.TripDto
-import com.example.web_demo0.Repository.TripRepository
-import com.example.web_demo0.Service.Impl.TripServiceImpl
+import com.example.web_demo0.model.entity.Trip
+import com.example.web_demo0.model.dto.TripDto
+import com.example.web_demo0.repository.TripRepository
+import com.example.web_demo0.service.impl.TripServiceImpl
 import spock.lang.Specification
 
 class TripServiceTest extends Specification{
-    private TripRepository tripRepository = Mock();
-    private TripService tripService = new TripServiceImpl(tripRepository);
+    private TripRepository tripRepository = Mock()
+    private TripService tripService = new TripServiceImpl(tripRepository)
 
     def "test create(Trip trip)"(){
         def trip = Trip.builder().address("a").name("a").build()
@@ -19,7 +19,6 @@ class TripServiceTest extends Specification{
         then:
 
         1*tripRepository.save(trip)
-
     }
 
     def "test getAll()"(){
@@ -34,7 +33,9 @@ class TripServiceTest extends Specification{
         tripDtos.add(tripDto)
 
         tripList.add(trip)
+
         when:
+
         def result = tripService.getAll()
         then:
 

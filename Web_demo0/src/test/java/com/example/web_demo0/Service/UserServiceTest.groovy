@@ -1,16 +1,16 @@
-package com.example.web_demo0.Service
+package com.example.web_demo0.service
 
-import com.example.web_demo0.Model.Entity.User
-import com.example.web_demo0.Model.Enum.Gender
-import com.example.web_demo0.Model.Enum.Role
-import com.example.web_demo0.Model.dto.UserDto
-import com.example.web_demo0.Repository.UserRepository
-import com.example.web_demo0.Service.Impl.UserServiceImpl
+import com.example.web_demo0.model.entity.User
+import com.example.web_demo0.model.enums.Gender
+import com.example.web_demo0.model.enums.Role
+import com.example.web_demo0.model.dto.UserDto
+import com.example.web_demo0.repository.UserRepository
+import com.example.web_demo0.service.impl.UserServiceImpl
 import spock.lang.Specification
 
 class UserServiceTest extends Specification {
-    private UserRepository userRepository = Mock();
-    private UserService userService = new UserServiceImpl(userRepository);
+    private UserRepository userRepository = Mock()
+    private UserService userService = new UserServiceImpl(userRepository)
 
     def "test create(User user)"(){
         User user = User.builder().role(Role.ADMIN).gender(Gender.MALE).username("a").firstName("a")
@@ -26,11 +26,11 @@ class UserServiceTest extends Specification {
     }
 
     def "test getAll()"(){
-        List<UserDto> userDtoList = new ArrayList<>();
+        List<UserDto> userDtoList = new ArrayList<>()
 
         UserDto userDto = UserDto.builder().email("a").username("a").build()
 
-        List<User> userList = new ArrayList<>();
+        List<User> userList = new ArrayList<>()
 
         User user = User.builder().email("a").username("a").build()
 
@@ -38,6 +38,7 @@ class UserServiceTest extends Specification {
         userList.add(user)
 
         when:
+
         def result = userService.getAll()
         then:
 
@@ -49,9 +50,10 @@ class UserServiceTest extends Specification {
         def username = "mock"
 
         when:
-        userService.deleteUserById(username)
 
+        userService.deleteUserById(username)
         then:
+
         1*userRepository.deleteById(username)
     }
 }

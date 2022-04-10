@@ -1,4 +1,4 @@
-package com.example.web_demo0.Config;
+package com.example.web_demo0.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -33,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().and().
                 authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/users").hasAnyAuthority( "ADMIN")
-                .antMatchers(HttpMethod.POST, "/users").hasAnyAuthority( "MODERATOR")
+                .antMatchers(HttpMethod.POST, "/users").hasAnyAuthority( "MODERATOR", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users").hasAnyAuthority( "MODERATOR")
                 .antMatchers(HttpMethod.GET, "/trips").hasAnyAuthority( "ADMIN","MODERATOR","USER")
                 .antMatchers(HttpMethod.POST, "/trips").hasAnyAuthority( "MODERATOR")

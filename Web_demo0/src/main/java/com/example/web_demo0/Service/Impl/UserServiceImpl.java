@@ -1,9 +1,9 @@
-package com.example.web_demo0.Service.Impl;
+package com.example.web_demo0.service.impl;
 
-import com.example.web_demo0.Model.Entity.User;
-import com.example.web_demo0.Model.dto.UserDto;
-import com.example.web_demo0.Repository.UserRepository;
-import com.example.web_demo0.Service.UserService;
+import com.example.web_demo0.model.entity.User;
+import com.example.web_demo0.model.dto.UserDto;
+import com.example.web_demo0.repository.UserRepository;
+import com.example.web_demo0.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     public List<UserDto> getAll() {
-        return userRepository.findAll().stream().map(user -> mapToUserDto(user)).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(this::mapToUserDto).collect(Collectors.toList());
     }
 
     public void create(User user) {
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserDto getById(String username) {
-        return userRepository.findById(username).map(user -> mapToUserDto(user)).get();
+        return userRepository.findById(username).map(this::mapToUserDto).get();
     }
 
     @Override

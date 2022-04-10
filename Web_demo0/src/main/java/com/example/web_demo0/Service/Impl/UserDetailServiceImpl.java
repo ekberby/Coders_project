@@ -1,8 +1,8 @@
-package com.example.web_demo0.Service.Impl;
+package com.example.web_demo0.service.impl;
 
-import com.example.web_demo0.Model.Entity.User;
-import com.example.web_demo0.Model.UserPrincipal;
-import com.example.web_demo0.Repository.UserRepository;
+import com.example.web_demo0.model.entity.User;
+import com.example.web_demo0.model.UserPrincipal;
+import com.example.web_demo0.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,6 +1,6 @@
-package com.example.web_demo0.Model.Entity;
+package com.example.web_demo0.model.entity;
 
-import com.example.web_demo0.Model.Enum.TripType;
+import com.example.web_demo0.model.enums.TripType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

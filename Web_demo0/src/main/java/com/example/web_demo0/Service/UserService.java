@@ -1,7 +1,7 @@
-package com.example.web_demo0.Service;
+package com.example.web_demo0.service;
 
-import com.example.web_demo0.Model.Entity.User;
-import com.example.web_demo0.Model.dto.UserDto;
+import com.example.web_demo0.model.entity.User;
+import com.example.web_demo0.model.dto.UserDto;
 
 import java.util.List;
 

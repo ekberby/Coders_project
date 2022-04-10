@@ -1,7 +1,7 @@
-package com.example.web_demo0.Model.Entity;
+package com.example.web_demo0.model.entity;
 
-import com.example.web_demo0.Model.Enum.Gender;
-import com.example.web_demo0.Model.Enum.Role;
+import com.example.web_demo0.model.enums.Gender;
+import com.example.web_demo0.model.enums.Role;
 import lombok.*;
 
 import javax.persistence.*;

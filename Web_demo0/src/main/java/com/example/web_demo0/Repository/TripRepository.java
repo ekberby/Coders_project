@@ -1,6 +1,6 @@
-package com.example.web_demo0.Repository;
+package com.example.web_demo0.repository;
 
-import com.example.web_demo0.Model.Entity.Trip;
+import com.example.web_demo0.model.entity.Trip;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
