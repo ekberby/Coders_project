@@ -29,14 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().
-                authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/users").hasAnyAuthority( "ADMIN")
-                .antMatchers(HttpMethod.POST, "/users").hasAnyAuthority( "MODERATOR", "ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/users").hasAnyAuthority( "MODERATOR")
-                .antMatchers(HttpMethod.GET, "/trips").hasAnyAuthority( "ADMIN","MODERATOR","USER")
-                .antMatchers(HttpMethod.POST, "/trips").hasAnyAuthority( "MODERATOR")
-                .antMatchers(HttpMethod.DELETE, "/trips").hasAnyAuthority( "MODERATOR")
-                .and().csrf().disable().formLogin().disable();
+        http.csrf().disable()
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/users").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST, "/users").hasAnyAuthority("MODERATOR", "ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/users").hasAnyAuthority("MODERATOR")
+                .antMatchers(HttpMethod.GET, "/trips").hasAnyAuthority("ADMIN", "MODERATOR", "USER")
+                .antMatchers(HttpMethod.POST, "/trips").hasAnyAuthority("MODERATOR")
+                .antMatchers(HttpMethod.DELETE, "/trips").hasAnyAuthority("MODERATOR");
     }
 }

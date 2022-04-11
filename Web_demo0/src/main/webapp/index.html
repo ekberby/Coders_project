@@ -36,7 +36,7 @@
     function createUser(){
         const xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
         xmlhttp.open("POST", "http://localhost:8080/users");
-        xmlhttp.setRequestHeader("contentType", "application/json");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
 
         let username = document.getElementById("username");
         let firstName=document.getElementById("fname");
