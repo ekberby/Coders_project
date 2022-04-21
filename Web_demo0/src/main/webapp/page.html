@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<form action="http://localhost:8080/users" method="post">
+    <h1>SignUp</h1>
+    <input type="text" name="" placeholder="Name" id="fname">
+    <input type="text" name="" placeholder="Surname" id="lname">
+    <input type="number" name="" id="age" placeholder="Age" min="18">
+    <input type="text" name="" placeholder="Username" id="username">
+    <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{12}">
+    <input type="text" name="" list="gender" placeholder="Gender">
+    <datalist id="gender">
+        <option>MALE</option>
+        <option>FEMALE</option>
+        <option>UNKNOWN</option>
+    </datalist>
+    <input type="email" name="" placeholder="Email" id="email">
+    <input type="password" name="" placeholder="Password" id="pass">
+    <input type="text" name="" list="role" placeholder="User Role">
+    <datalist id="role">
+        <option>ADMIN</option>
+        <option>USER</option>
+        <option>MODERATOR</option>
+    </datalist>
+    <button type="submit" onclick="createUser()">SignUp</button>
+</form>
+</body>
+<script>
+    function createUser(){
+        const xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+        xmlhttp.open("POST", "http://localhost:8080/users");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+
+        let username = document.getElementById("username");
+        let firstName=document.getElementById("fname");
+        let lastName=document.getElementById("lname");
+        let email=document.getElementById("email");
+        let phone=document.getElementById("phone");
+        let password = document.getElementById("pass");
+        let userRole = document.getElementById("role");
+        let age = document.getElementById("age");
+        let gender = document.getElementById("gender");
+
+        var customerData={
+            username:username.value,
+            name:firstName.value,
+            surname:lastName.value,
+            email:email.value,
+            phone:phone.value,
+            password:password.value,
+            role:userRole.value,
+            age:age.value,
+            gender:gender.value
+        }
+
+        username.value =""
+        firstName.value=""
+        lastName.value=""
+        email.value=""
+        phone.value=""
+        password.value=""
+        userRole.value=""
+        age.value=""
+        gender.value=""
+
+        xmlhttp.send(JSON.stringify(customerData));
+    }
+</script>
+</html>

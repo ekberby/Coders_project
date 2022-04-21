@@ -4,6 +4,7 @@ import com.example.web_demo0.model.entity.User;
 import com.example.web_demo0.model.dto.UserDto;
 import com.example.web_demo0.service.impl.UserServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
