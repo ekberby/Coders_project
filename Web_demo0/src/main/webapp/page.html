@@ -1,33 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<form action="http://localhost:8080/users" method="post">
-    <h1>SignUp</h1>
-    <input type="text" name="" placeholder="Name" id="fname">
-    <input type="text" name="" placeholder="Surname" id="lname">
-    <input type="number" name="" id="age" placeholder="Age" min="18">
-    <input type="text" name="" placeholder="Username" id="username">
-    <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{12}">
-    <input type="text" name="" list="gender" placeholder="Gender">
-    <datalist id="gender">
-        <option>MALE</option>
-        <option>FEMALE</option>
-        <option>UNKNOWN</option>
-    </datalist>
-    <input type="email" name="" placeholder="Email" id="email">
-    <input type="password" name="" placeholder="Password" id="pass">
-    <input type="text" name="" list="role" placeholder="User Role">
-    <datalist id="role">
-        <option>ADMIN</option>
-        <option>USER</option>
-        <option>MODERATOR</option>
-    </datalist>
-    <button type="submit" onclick="createUser()">SignUp</button>
-</form>
+<div id="bg">
+    <div class="module" id="module">
+        <ul>
+            <li class="tab activeTab"><input type="button" value="Register" class="button" onclick="showSignUp()"></li>
+            <li class="tab"><input type="button" value="Log in" class="button" onclick="showLogIn()"></li>
+        </ul>
+        <form class="form" id="form">
+            <input type="text" placeholder="Username" class="textbox"/>
+            <input type="password" placeholder="Password" class="textbox"/>
+            <input type="submit" value="Log In" id="submit"/>
+        </form>
+    </div>
+</div>
 </body>
 <script>
     function createUser(){
@@ -68,6 +58,47 @@
         gender.value=""
 
         xmlhttp.send(JSON.stringify(customerData));
+    }
+
+    function showSignUp(){
+        let display = document.getElementById("module")
+        display.innerHTML = '<ul>\n' +
+            '            <li class="tab activeTab"><input type="button" value="Register" class="button" onclick="showSignUp()"></li>\n' +
+            '            <li class="tab"><input type="button" value="Log in" class="button" onclick="showLogIn()"></li>\n' +
+            '        </ul>\n' +
+            '        <form action="http://localhost:8080/users" method="post" class="form" id="form">\n'+
+            '<input type="text" placeholder="First Name" class="textbox" id="fname"/>\n' +
+            '            <input type="text" placeholder="Last Name" class="textbox" id="lname"/>\n' +
+            '            <input type="email" placeholder="Email Address" class="textbox" id="email"/>\n' +
+            '            <input type="number" name="" id="age" placeholder="Age" min="18" class="textbox">\n' +
+            '            <input type="text" name="" placeholder="Username" id="username" class="textbox">\n' +
+            '            <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{12}" class="textbox">\n' +
+            '            <input type="text" name="" list="gender" placeholder="Gender" class="textbox">\n' +
+            '            <datalist id="gender">\n' +
+            '                <option>MALE</option>\n' +
+            '                <option>FEMALE</option>\n' +
+            '                <option>UNKNOWN</option>\n' +
+            '            </datalist>\n' +
+            '            <input type="email" name="" placeholder="Email" id="email" class="textbox">\n' +
+            '            <input type="password" name="" placeholder="Password" id="pass" class="textbox">\n' +
+            '            <input type="text" name="" list="role" placeholder="User Role" class="textbox">\n' +
+            '            <datalist id="role">\n' +
+            '                <option>ADMIN</option>\n' +
+            '                <option>USER</option>\n' +
+            '                <option>MODERATOR</option>\n' +
+            '            </datalist>\n' +
+            '            <input type="submit" value="Sign Up" id="submit" onclick="createUser()"/>\n'+
+            '</form>'
+
+    }
+
+    function showLogIn(){
+        let display = document.getElementById("form")
+        display.innerHTML = '<form action="/login" class="form" id="form">\n'+
+            '<input type="text" placeholder="Username" class="textbox" />\n'+
+            '<input type="password" placeholder="Password" class="textbox" />\n'+
+            '<input type="submit" value="Log In" id="submit"/>'+
+            '</form>'
     }
 </script>
 </html>
