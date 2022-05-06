@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Tourist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+<h1>Welcome to E-Tourist</h1>
+<div class="container">
+    <a th:href="@{/trips/camp}" class="btn btn-1">Kampinq</a>
+    <a th:href="@{/trips/eks}" class="btn btn-2">Ekskursiya</a>
+    <a th:href="@{/trips/sey}" class="btn btn-3">Seyahet</a>
+</div>
+</body>
+</html>
