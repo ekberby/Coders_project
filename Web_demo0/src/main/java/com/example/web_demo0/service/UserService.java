@@ -13,5 +13,7 @@ public interface UserService {
 
     UserDto getById(String username);
 
+    User getUserById(String username);
+
     void deleteUserById(String username);
 }

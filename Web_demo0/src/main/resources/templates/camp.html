@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trips</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class ="container">
+    <div class = "row">
+        <h1> List Kamping Trips </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/trips/new}" class = "btn btn-primary btn-sm mb-3"> Add Trip</a>
+        </div>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Days</th>
+            <th>Price</th>
+            <th>Type</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "camp: ${camps}">
+            <td th:text = "${camp.name}"></td>
+            <td th:text="${camp.address}"></td>
+            <td th:text="${camp.numberOfDays}"></td>
+            <td th:text="${camp.price}"></td>
+            <td th:text="${camp.tripType}"></td>
+            <td>
+                <a th:href = "@{/trips/edit/{id}(id=${camp.name})}"
+                   class = "btn btn-primary">Update</a>
+
+                <a th:href = "@{/trips/{id}(id=${camp.name})}"
+                   class = "btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+</table>
+</body>
+</html>

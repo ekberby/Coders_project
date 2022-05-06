@@ -2,6 +2,7 @@ package com.example.web_demo0.service.impl;
 
 import com.example.web_demo0.model.entity.Trip;
 import com.example.web_demo0.model.dto.TripDto;
+import com.example.web_demo0.model.enums.TripType;
 import com.example.web_demo0.repository.TripRepository;
 import com.example.web_demo0.service.TripService;
 import lombok.AllArgsConstructor;
@@ -28,13 +29,18 @@ public class TripServiceImpl  implements TripService {
 
 
     @Override
-    public TripDto getById(String name) {
-        return tripRepository.findById(name).map(this::mapToTripDto).get();
+    public List<Trip> getByType(TripType tripType) {
+        return tripRepository.findByTripType(tripType);
     }
 
     @Override
     public void deleteTripByID(String name) {
         tripRepository.deleteById(name);
+    }
+
+    @Override
+    public Trip getByID(String name) {
+        return tripRepository.findByName(name);
     }
 
 

@@ -24,6 +24,6 @@ public class Trip {
     @Enumerated(EnumType.STRING)
     private TripType tripType;
     @OneToMany
-    List<User> userList;
+    List<com.example.web_demo0.model.entity.User> userList;
 }
 

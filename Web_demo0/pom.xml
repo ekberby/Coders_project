@@ -20,6 +20,14 @@
         <maven.compiler.target>13</maven.compiler.target>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.spockframework/spock-core -->
         <dependency>
             <groupId>org.spockframework</groupId>
