@@ -5,8 +5,6 @@
 }
 
 body{
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("https://images.pexels.com/photos/4338020/pexels-photo-4338020.jpeg?cs=srgb&dl=pexels-arthouse-studio-4338020.jpg&fm=jpg");
     background-size: cover;
     background-position: center;
     font-family: 'Poppins', sans-serif;
