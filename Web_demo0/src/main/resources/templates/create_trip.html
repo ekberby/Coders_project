@@ -9,6 +9,69 @@
           crossorigin="anonymous">
 </head>
 <body>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Trip </h1>
+            <div class = "card-body">
+                <form th:action="@{/trips}" th:object = "${trip}" method="POST">
+                    <div class ="form-group">
+                        <input
+                                type = "text"
+                                name = "name"
+                                th:field = "*{name}"
+                                class = "form-control"
+                                placeholder="Name"
+                        />
+                    </div>
 
+                    <div class ="form-group">
+                        <input
+                                type = "text"
+                                name = "address"
+                                th:field = "*{address}"
+                                class = "form-control"
+                                placeholder="Address"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <input
+                                type = "text"
+                                name = "days"
+                                th:field = "*{numberOfDays}"
+                                class = "form-control"
+                                placeholder="Days"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <input
+                                type = "text"
+                                name = "price"
+                                th:field = "*{price}"
+                                class = "form-control"
+                                placeholder="Price"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <input
+                                type = "text"
+                                name = "type"
+                                th:field = "*{tripType}"
+                                class = "form-control"
+                                placeholder="Type"
+                        />
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

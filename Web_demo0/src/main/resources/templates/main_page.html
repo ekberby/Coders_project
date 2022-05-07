@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>E-Tourist</title>
@@ -9,11 +10,19 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" href="../static/css/main.css">
 </head>
 <body>
-<h1>Welcome to E-Tourist</h1>
+<div class="hero">
+    <nav>
+        <h2 class="logo">Welcome to <span>E-Tourist</span></h2>
+        <ul>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/users}" id="link">Users</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
 <div class="container">
-    <a th:href="@{/trips/camp}" class="btn btn-1">Kampinq</a>
-    <a th:href="@{/trips/eks}" class="btn btn-2">Ekskursiya</a>
-    <a th:href="@{/trips/sey}" class="btn btn-3">Seyahet</a>
+    <a th:href="@{/trips/camp}" class="btn">Camping</a>
+    <a th:href="@{/trips/exc}" class="btn">Excursion</a>
+    <a th:href="@{/trips/tra}" class="btn">Travel</a>
 </div>
 </body>
 </html>

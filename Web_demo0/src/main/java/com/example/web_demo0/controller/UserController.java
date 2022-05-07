@@ -14,7 +14,6 @@ public class UserController {
 
     private final UserService userService;
 
-    // handler method to handle list students and return mode and view
     @GetMapping("/users")
     public String listUsers(Model model) {
         model.addAttribute("users", userService.getAll());
@@ -23,8 +22,6 @@ public class UserController {
 
     @GetMapping("/users/new")
     public String createUserForm(Model model) {
-
-        // create student object to hold student form data
         User user = new User();
         model.addAttribute("user", user);
         return "create_user";
@@ -33,7 +30,7 @@ public class UserController {
 
 
     @PostMapping("/users")
-    public String saveUser(@ModelAttribute("student") User user) {
+    public String saveUser(@ModelAttribute("user") User user) {
         userService.create(user);
         return "redirect:/users";
     }
@@ -49,7 +46,6 @@ public class UserController {
                              @ModelAttribute("user") User user,
                              Model model) {
 
-        // get student from database by id
         User existingUser = userService.getUserById(id);
         existingUser.setUsername(id);
         existingUser.setFirstName(user.getFirstName());
@@ -60,12 +56,10 @@ public class UserController {
         existingUser.setPassword(user.getPassword());
         existingUser.setPhoneNumber(user.getPhoneNumber());
         existingUser.setRole(user.getRole());
-        // save updated student object
         userService.create(existingUser);
         return "redirect:/users";
     }
 
-    // handler method to handle delete student request
 
     @GetMapping("/users/{id}")
     public String deleteUser(@PathVariable String id) {

@@ -40,6 +40,6 @@ public class UserServiceImpl implements UserService {
 
     private UserDto mapToUserDto(User user){
         return UserDto.builder().username(user.getUsername()).firstName(user.getFirstName()).lastName(user.getLastName())
-                .email(user.getEmail()).phoneNumber(user.getPhoneNumber()).gender(user.getGender()).build();
+                .email(user.getEmail()).phoneNumber(user.getPhoneNumber()).gender(user.getGender()).role(user.getRole()).build();
     }
 }
