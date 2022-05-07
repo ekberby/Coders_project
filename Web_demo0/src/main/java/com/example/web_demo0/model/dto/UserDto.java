@@ -2,6 +2,7 @@ package com.example.web_demo0.model.dto;
 
 
 import com.example.web_demo0.model.enums.Gender;
+import com.example.web_demo0.model.enums.Role;
 import lombok.*;
 
 @Data
@@ -15,5 +16,6 @@ public class UserDto {
     private String email;
     private String phoneNumber;
     private Gender gender;
+    private Role role;
 }
 

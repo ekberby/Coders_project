@@ -41,17 +41,17 @@
             </thead>
             <tbody>
             <tr>
-            <tr th:each = "camp: ${camps}">
-                <td th:text = "${camp.name}"></td>
-                <td th:text="${camp.address}"></td>
-                <td th:text="${camp.numberOfDays}"></td>
-                <td th:text="${camp.price}"></td>
-                <td th:text="${camp.tripType}"></td>
+            <tr th:each = "exc: ${excs}">
+                <td th:text = "${exc.name}"></td>
+                <td th:text="${exc.address}"></td>
+                <td th:text="${exc.numberOfDays}"></td>
+                <td th:text="${exc.price}"></td>
+                <td th:text="${exc.tripType}"></td>
                 <td>
-                    <a th:href = "@{/trips/edit/{id}(id=${camp.name})}"
+                    <a th:href = "@{/trips/edit/{id}(id=${exc.name})}"
                        class = "btn btn-primary">Update</a>
 
-                    <a th:href = "@{/trips/delete/{id}(id=${camp.name})}"
+                    <a th:href = "@{/trips/delete/{id}(id=${exc.name})}"
                        class = "btn btn-danger">Delete</a>
                 </td>
             </tr>

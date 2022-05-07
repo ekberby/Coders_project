@@ -20,28 +20,43 @@ public class TripController {
 
     private final TripService tripService;
 
-    @GetMapping("")
-    public String showButtons(){
-        return "main_page";
-    }
 
-    @GetMapping("/trips/new")
-    public String createUserForm(Model model) {
-        Trip trip = new Trip();
-        model.addAttribute("trip", trip);
-        return "";
+    @PostMapping("/trips")
+    public String saveUser(@ModelAttribute("trip") Trip trip) {
+        tripService.create(trip);
+        return "redirect:/trips/camp";
     }
 
     @GetMapping("/trips/camp")
     public String showCamp(Model model){
-        model.addAttribute("camps", tripService.getByType(TripType.KAMPING));
+        model.addAttribute("camps", tripService.getByType(TripType.CAMPING));
         return "camp";
+    }
+
+    @GetMapping("/trips/exc")
+    public String showEks(Model model){
+        model.addAttribute("excs", tripService.getByType(TripType.EXCURSION));
+        return "excursion";
+    }
+
+    @GetMapping("/trips/tra")
+    public String showSey(Model model){
+        model.addAttribute("tras", tripService.getByType(TripType.TRAVEL));
+        return "travel";
     }
 
     @GetMapping("/trips/edit/{id}")
     public String editUserForm(@PathVariable String id, Model model) {
         model.addAttribute("trip", tripService.getByID(id));
         return "edit_trip";
+    }
+
+    @GetMapping("/trips/new")
+    public String createTripForm(Model model) {
+        Trip trip = new Trip();
+        model.addAttribute("trip", trip);
+        return "create_trip";
+
     }
 
     @PostMapping("/trips/{id}")
@@ -61,9 +76,9 @@ public class TripController {
         return "redirect:/";
     }
 
-    @GetMapping("/trips/{id}")
-    public String deleteUser(@PathVariable String id) {
+    @GetMapping("/trips/delete/{id}")
+    public String deleteTrip(@PathVariable String id){
         tripService.deleteTripByID(id);
-        return "redirect:/trips/camp";
+        return "camp";
     }
 }
